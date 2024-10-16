@@ -6,6 +6,8 @@ public class PlayerCharacter : MonoBehaviour
 {
     public float moveSpeed = 10f;
 
+    public float jumpSpeed = 10f;
+
     private Rigidbody myRigidbody; 
 
     // Start is called before the first frame update
@@ -47,13 +49,21 @@ public class PlayerCharacter : MonoBehaviour
             transform.position = transform.position + new Vector3(1f,0f,0f) * moveSpeed * Time.deltaTime;
         }
 
-        //Spacebar for jumping 
+        //Spacebar for jumping & Left Control for charging a jump
 
         bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
 
+        bool chargePressed = Input.GetKey(KeyCode.LeftControl);
+
+        if (chargePressed)
+        {
+            jumpSpeed = jumpSpeed + 1f * Time.deltaTime; 
+        }
+
         if (jumpPressed) 
         {
-            myRigidbody.AddForce(new Vector3(0f,1f,0f) * moveSpeed, ForceMode.Impulse);
+            myRigidbody.AddForce(new Vector3(0f,1f,0f) * jumpSpeed, ForceMode.Impulse);
+            jumpSpeed = 10f;
         }
 
         // Left Shift for sprinting
