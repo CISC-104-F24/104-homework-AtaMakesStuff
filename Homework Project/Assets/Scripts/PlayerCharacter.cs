@@ -6,7 +6,15 @@ public class PlayerCharacter : MonoBehaviour
 {
     public float moveSpeed = 10f;
 
+    public float sprintSpeed = 20f;
+
+    public float originalSpeed = 10f;
+
     public float jumpSpeed = 10f;
+
+    public float originalJumpSpeed = 10f;
+
+    public float powerGainedPerSecond = 1f;
 
     private Rigidbody myRigidbody; 
 
@@ -57,13 +65,13 @@ public class PlayerCharacter : MonoBehaviour
 
         if (chargePressed)
         {
-            jumpSpeed = jumpSpeed + 1f * Time.deltaTime; 
+            jumpSpeed = jumpSpeed + powerGainedPerSecond * Time.deltaTime; 
         }
 
         if (jumpPressed) 
         {
             myRigidbody.AddForce(new Vector3(0f,1f,0f) * jumpSpeed, ForceMode.Impulse);
-            jumpSpeed = 10f;
+            jumpSpeed = originalJumpSpeed;
         }
 
         // Left Shift for sprinting
@@ -72,11 +80,11 @@ public class PlayerCharacter : MonoBehaviour
 
         if (sprintPressed) 
         {
-            moveSpeed = 20f;
+            moveSpeed = sprintSpeed;
         }
         else 
         {
-            moveSpeed = 10f;
+            moveSpeed = originalSpeed;
         }
 
         
