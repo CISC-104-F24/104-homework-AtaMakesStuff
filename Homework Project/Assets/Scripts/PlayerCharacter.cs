@@ -87,6 +87,22 @@ public class PlayerCharacter : MonoBehaviour
             moveSpeed = originalSpeed;
         }
 
+        // Q and E for rotating left and right 
+
+        bool leftTurnPressed = Input.GetKey(KeyCode.Q);
+
+        if (leftTurnPressed)
+        {
+            transform.Rotate(0f,-1f,0f,Space.Self);
+        }
+
+        bool rightTurnPressed = Input.GetKey(KeyCode.E);
+
+        if (rightTurnPressed) 
+        {
+            transform.Rotate(0f,1f,0f,Space.Self);
+        }
+
         
     }
 }
