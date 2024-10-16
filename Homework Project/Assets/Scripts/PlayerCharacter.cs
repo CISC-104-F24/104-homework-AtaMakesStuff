@@ -56,6 +56,19 @@ public class PlayerCharacter : MonoBehaviour
             myRigidbody.AddForce(new Vector3(0f,1f,0f) * moveSpeed, ForceMode.Impulse);
         }
 
+        // Left Shift for sprinting
+
+        bool sprintPressed = Input.GetKey(KeyCode.LeftShift);
+
+        if (sprintPressed) 
+        {
+            moveSpeed = 20f;
+        }
+        else 
+        {
+            moveSpeed = 10f;
+        }
+
         
     }
 }
