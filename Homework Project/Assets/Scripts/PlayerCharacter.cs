@@ -53,7 +53,7 @@ public class PlayerCharacter : MonoBehaviour
 
         if (jumpPressed) 
         {
-            
+            myRigidbody.AddForce(new Vector3(0f,1f,0f) * moveSpeed, ForceMode.Impulse);
         }
 
         
