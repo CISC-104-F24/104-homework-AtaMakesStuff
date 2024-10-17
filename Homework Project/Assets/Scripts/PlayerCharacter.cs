@@ -26,6 +26,12 @@ public class PlayerCharacter : MonoBehaviour
 
     public float scaleSpeed = 1f;
 
+    public bool canJump = true; 
+
+    public float timeSinceLastJump;
+
+    public float jumpCooldownTime = 2f;
+
     private Rigidbody myRigidbody; 
 
     // Start is called before the first frame update
@@ -70,6 +76,7 @@ public class PlayerCharacter : MonoBehaviour
         //Spacebar for jumping & Left Control for charging a jump
         //max Jump Speed of 15, cant go above 15 no matter 
         //long Spacebar is held down 
+        //also have cooldown on jump
 
         bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
 
@@ -85,10 +92,24 @@ public class PlayerCharacter : MonoBehaviour
             jumpSpeed = maxJumpSpeed; 
         }
 
-        if (jumpPressed) 
+        if (jumpPressed && canJump) 
         {
             myRigidbody.AddForce(new Vector3(0f,1f,0f) * jumpSpeed, ForceMode.Impulse);
             jumpSpeed = originalJumpSpeed;
+            canJump = false;
+            timeSinceLastJump = 0f;
+        }
+
+        timeSinceLastJump = timeSinceLastJump + 1f * Time.deltaTime;
+        
+        if (timeSinceLastJump < jumpCooldownTime)
+        {
+            canJump = false; 
+        }
+
+        else 
+        {
+            canJump = true;
         }
 
         // Left Shift for sprinting
