@@ -16,6 +16,10 @@ public class PlayerCharacter : MonoBehaviour
 
     public float powerGainedPerSecond = 1f;
 
+    public float rotateSpeed = 1f;
+
+    public float scaleSpeed = 1f;
+
     private Rigidbody myRigidbody; 
 
     // Start is called before the first frame update
@@ -93,32 +97,37 @@ public class PlayerCharacter : MonoBehaviour
 
         if (leftTurnPressed)
         {
-            transform.Rotate(0f,-1f,0f,Space.Self);
+            transform.Rotate(0f,-rotateSpeed,0f,Space.Self);
         }
 
         bool rightTurnPressed = Input.GetKey(KeyCode.E);
 
         if (rightTurnPressed) 
         {
-            transform.Rotate(0f,1f,0f,Space.Self);
+            transform.Rotate(0f,rotateSpeed,0f,Space.Self);
         }
 
         // Rotate mouse left or right to rotate left or right 
         
-        float rotation = Input.GetAxis("Mouse X") * 1f; 
+        float rotation = Input.GetAxis("Mouse X") * rotateSpeed; 
 
         transform.Rotate(0,rotation,0);
 
-        
-        /*
-        bool mouseMoved = Input.GetAxis("Horizontal");
+        // Scale big using F or small using C
 
-        if (mouseMoved)
+        bool bigScalePressed = Input.GetKey(KeyCode.F);
+
+        if (bigScalePressed)
         {
-            transform.Rotate(0f,Input.GetAxis("MouseX")*1f*Time.deltaTime,0f);
+            transform.localScale = transform.localScale + new Vector3(1f,1f,1f) * scaleSpeed * Time.deltaTime;
         }
-        */
 
+        bool smallScalePressed = Input.GetKey(KeyCode.C);
+
+        if (smallScalePressed)
+        {
+            transform.localScale = transform.localScale + new Vector3(-1f,-1f,-1f) * scaleSpeed * Time.deltaTime;
+        }
         
     }
 }
