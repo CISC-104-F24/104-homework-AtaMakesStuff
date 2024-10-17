@@ -85,6 +85,7 @@ public class PlayerCharacter : MonoBehaviour
         // Left Shift for sprinting
         // Can only sprint for 5 consecutive seconds 
         // before returning to normal speed 
+        // then reset distance travelled upon releasing sprint
 
         bool sprintPressed = Input.GetKey(KeyCode.LeftShift);
 
