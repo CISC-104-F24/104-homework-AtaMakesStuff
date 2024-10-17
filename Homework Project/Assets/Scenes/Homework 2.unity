@@ -245,9 +245,14 @@ MonoBehaviour:
   moveSpeed: 10
   sprintSpeed: 20
   originalSpeed: 10
+  distanceSprinted: 0
+  maxSprintTime: 5
   jumpSpeed: 10
   originalJumpSpeed: 10
   powerGainedPerSecond: 1
+  maxJumpSpeed: 15
+  rotateSpeed: 1
+  scaleSpeed: 1
 --- !u!54 &520282617
 Rigidbody:
   m_ObjectHideFlags: 0

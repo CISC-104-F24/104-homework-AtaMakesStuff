@@ -10,19 +10,21 @@ public class PlayerCharacter : MonoBehaviour
 
     public float originalSpeed = 10f;
 
+    public float distanceSprinted = 0f;
+
+    public float maxSprintTime = 5f; 
+
     public float jumpSpeed = 10f;
 
     public float originalJumpSpeed = 10f;
 
     public float powerGainedPerSecond = 1f;
 
+    public float maxJumpSpeed = 15f;
+
     public float rotateSpeed = 1f;
 
     public float scaleSpeed = 1f;
-
-    public float distanceSprinted = 0f;
-
-    public float maxSprintTime = 10f; 
 
     private Rigidbody myRigidbody; 
 
@@ -66,6 +68,8 @@ public class PlayerCharacter : MonoBehaviour
         }
 
         //Spacebar for jumping & Left Control for charging a jump
+        //max Jump Speed of 15, cant go above 15 no matter 
+        //long Spacebar is held down 
 
         bool jumpPressed = Input.GetKeyDown(KeyCode.Space);
 
@@ -74,6 +78,11 @@ public class PlayerCharacter : MonoBehaviour
         if (chargePressed)
         {
             jumpSpeed = jumpSpeed + powerGainedPerSecond * Time.deltaTime; 
+        }
+
+        if (jumpSpeed > maxJumpSpeed) 
+        {
+            jumpSpeed = maxJumpSpeed; 
         }
 
         if (jumpPressed) 
