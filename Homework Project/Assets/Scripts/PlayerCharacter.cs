@@ -20,6 +20,10 @@ public class PlayerCharacter : MonoBehaviour
 
     public float scaleSpeed = 1f;
 
+    public float distanceSprinted = 0f;
+
+    public float maxSprintTime = 10f; 
+
     private Rigidbody myRigidbody; 
 
     // Start is called before the first frame update
@@ -79,16 +83,30 @@ public class PlayerCharacter : MonoBehaviour
         }
 
         // Left Shift for sprinting
+        // Can only sprint for 5 consecutive seconds 
+        // before returning to normal speed 
 
         bool sprintPressed = Input.GetKey(KeyCode.LeftShift);
 
         if (sprintPressed) 
         {
             moveSpeed = sprintSpeed;
+            distanceSprinted = distanceSprinted + 1 * Time.deltaTime;
+            if (distanceSprinted > maxSprintTime)
+            {
+                moveSpeed = originalSpeed;
+            }
         }
         else 
         {
             moveSpeed = originalSpeed;
+        }
+
+        bool sprintReleased = Input.GetKeyUp(KeyCode.LeftShift);
+
+        if (sprintReleased)
+        {
+            distanceSprinted = 0f;
         }
 
         // Q and E for rotating left and right 
