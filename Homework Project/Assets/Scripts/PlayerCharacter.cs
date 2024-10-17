@@ -103,6 +103,22 @@ public class PlayerCharacter : MonoBehaviour
             transform.Rotate(0f,1f,0f,Space.Self);
         }
 
+        // Rotate mouse left or right to rotate left or right 
+        
+        float rotation = Input.GetAxis("Mouse X") * 1f; 
+
+        transform.Rotate(0,rotation,0);
+
+        
+        /*
+        bool mouseMoved = Input.GetAxis("Horizontal");
+
+        if (mouseMoved)
+        {
+            transform.Rotate(0f,Input.GetAxis("MouseX")*1f*Time.deltaTime,0f);
+        }
+        */
+
         
     }
 }
