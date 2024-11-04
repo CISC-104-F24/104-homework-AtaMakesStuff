@@ -26,6 +26,11 @@ public class PlayerCollision : MonoBehaviour
             Debug.Log("Reset!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        if (collision.gameObject.CompareTag("Color"))
+        {
+            GetComponent<MeshRenderer>().material.color = new Color(1f,0.1f,0.79f);
+        }
     }
 
     private void OnCollisionStay(Collision collision)
