@@ -55,4 +55,13 @@ public class PlayerCollision : MonoBehaviour
             Debug.Log("You are no longer gaining health");
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Color"))
+        {
+            GetComponent<MeshRenderer>().material.color = new Color(1f,1f,0f);
+        }
+    }
+
 }
