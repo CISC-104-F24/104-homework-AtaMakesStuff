@@ -141,7 +141,7 @@ public class PlayerCharacter : MonoBehaviour
         }
 
         // Q and E for rotating left and right 
-
+        
         bool leftTurnPressed = Input.GetKey(KeyCode.Q);
 
         if (leftTurnPressed)
@@ -155,12 +155,13 @@ public class PlayerCharacter : MonoBehaviour
         {
             transform.Rotate(0f,rotateSpeed,0f,Space.Self);
         }
+        
 
         // Rotate mouse left or right to rotate left or right 
         
-        float rotation = Input.GetAxis("Mouse X") * rotateSpeed; 
+        //float rotation = Input.GetAxis("Mouse X") * rotateSpeed; 
 
-        transform.Rotate(0,rotation,0);
+        //transform.Rotate(0,rotation,0);
 
         // Scale big using F or small using C
 
