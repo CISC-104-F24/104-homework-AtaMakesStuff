@@ -62,6 +62,39 @@ public class PlayerCollision : MonoBehaviour
         {
             GetComponent<MeshRenderer>().material.color = new Color(1f,1f,0f);
         }
+
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("HealthBoost"))
+        {
+            healthPoints++;
+            Debug.Log("You have " + healthPoints + " health.");
+        }
+
+        if (other.gameObject.CompareTag("Reset"))
+        {
+            healthPoints--;
+            Debug.Log("You have " + healthPoints + " health!");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("HealthBoost"))
+        {
+            Debug.Log("You are no longer gaining health");
+        }
+
+        if (other.gameObject.CompareTag("Reset"))
+        {
+            if (healthPoints < 1)
+            {
+                Debug.Log("You swam for too long, you died!");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
+
+    }
 }
