@@ -7,6 +7,8 @@ public class PlayerCollision : MonoBehaviour
 {
 
     public int healthPoints = 10;
+
+    public int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,14 +71,14 @@ public class PlayerCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("HealthBoost"))
         {
-            healthPoints++;
-            Debug.Log("You have " + healthPoints + " health.");
+            score++;
+            Debug.Log("Your score is " + score + ", nice!");
         }
 
         if (other.gameObject.CompareTag("Reset"))
         {
-            healthPoints--;
-            Debug.Log("You have " + healthPoints + " health!");
+            score--;
+            Debug.Log("You have " + score + " score remaining, be careful");
         }
     }
 
@@ -84,14 +86,14 @@ public class PlayerCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("HealthBoost"))
         {
-            Debug.Log("You are no longer gaining health");
+            Debug.Log("You are no longer gaining score");
         }
 
         if (other.gameObject.CompareTag("Reset"))
         {
-            if (healthPoints < 1)
+            if (score < 1)
             {
-                Debug.Log("You swam for too long, you died!");
+                Debug.Log("You ran out of score, you died!");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
