@@ -18,11 +18,13 @@ public class Test : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Destroys object when player touches 
         Destroy(gameObject);
     }
 
     private void OnTriggerExit(Collider other)
     {
+        //Destorys object when player leaves trigger
         Destroy(gameObject);
     }
 
