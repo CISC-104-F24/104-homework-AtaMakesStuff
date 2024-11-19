@@ -8,7 +8,11 @@ public class Card : MonoBehaviour
 {
     public string cardName;
 
-    public int attackDamage;
+    public int initialAttackDamage;
+
+    public int newDamage;
+
+    public string newDamageName; 
 
     public int healthPoints; 
 
@@ -32,5 +36,27 @@ public class Card : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void changeName(string newName) 
+    {
+        cardName = newName;
+        nameDisplay.text = newName;
+    }
+
+    public void changeDamageOne(int damageChange)
+    {
+        initialAttackDamage = int.Parse(attackDisplayOne.text);
+        newDamage = initialAttackDamage + damageChange; 
+        newDamageName = "" + newDamage; 
+        attackDisplayOne.text = newDamageName;
+    }
+
+    public void changeDamageTwo(int damageChange)
+    {
+        initialAttackDamage = int.Parse(attackDisplayTwo.text);
+        newDamage = initialAttackDamage + damageChange; 
+        newDamageName = "" + newDamage; 
+        attackDisplayTwo.text = newDamageName;
     }
 }
