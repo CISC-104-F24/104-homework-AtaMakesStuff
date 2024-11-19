@@ -835,6 +835,7 @@ GameObject:
   - component: {fileID: 590803835}
   - component: {fileID: 590803834}
   - component: {fileID: 590803833}
+  - component: {fileID: 590803837}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -950,6 +951,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &590803837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590803832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e7ec5b5a0804c79b676d59d0899d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: 
+  attackDamage: 0
+  healthPoints: 0
+  pokemon: {fileID: 1079396974}
+  healthDisplay: {fileID: 883897889}
+  nameDisplay: {fileID: 2029526735}
+  attackDisplayOne: {fileID: 1919866385}
+  attackDisplayTwo: {fileID: 1245037601}
 --- !u!1 &625244292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,10 +1928,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 21.9
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2955,10 +2976,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 23.3
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
