@@ -14,7 +14,11 @@ public class Card : MonoBehaviour
 
     public string newDamageName; 
 
-    public int healthPoints; 
+    public int initialHealthPoints; 
+
+    public int newHealthPoints;
+
+    public string newHealthPointsText;
 
     public Image pokemon;
 
@@ -58,5 +62,13 @@ public class Card : MonoBehaviour
         newDamage = initialAttackDamage + damageChange; 
         newDamageName = "" + newDamage; 
         attackDisplayTwo.text = newDamageName;
+    }
+
+    public void changeHealth(int healthChange)
+    {
+        initialHealthPoints = int.Parse(healthDisplay.text);
+        newHealthPoints = initialHealthPoints + healthChange; 
+        newHealthPointsText = "" + newHealthPoints;
+        healthDisplay.text = newHealthPointsText;
     }
 }
