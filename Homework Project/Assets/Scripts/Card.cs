@@ -19,7 +19,7 @@ public class Card : MonoBehaviour
     public int newHealthPoints;
 
     public string newHealthPointsText;
-    
+
     public TextMeshProUGUI healthDisplay;
 
     public TextMeshProUGUI nameDisplay;
@@ -37,6 +37,42 @@ public class Card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Push Q on keyboard to activate Change Name button
+        bool qPressed = Input.GetKeyDown(KeyCode.Q);
+        if (qPressed)
+        {
+            changeName("Pachirisu");
+        }
+
+        // Push A on keyboard to activate Increase Damage button
+        bool aPressed = Input.GetKeyDown(KeyCode.A);
+        if (aPressed)
+        {
+            changeDamageOne(5);
+            changeDamageTwo(5);
+        }
+
+        // Push Z on keyboard to activate Decrease Damage button
+        bool zPressed = Input.GetKeyDown(KeyCode.Z);
+        if (zPressed)
+        {
+            changeDamageOne(-5);
+            changeDamageTwo(-5);
+        }
+
+        // Push W on keyboard to activate Increase Health button
+        bool wPressed = Input.GetKeyDown(KeyCode.W);
+        if (wPressed)
+        {
+            changeHealth(10);
+        }
+
+        // Push S on keyboard to activate Decrease Health button
+        bool sPressed = Input.GetKeyDown(KeyCode.S);
+        if (sPressed)
+        {
+            changeHealth(-10);
+        }
         
     }
 
