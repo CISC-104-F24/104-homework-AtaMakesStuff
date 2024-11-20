@@ -19,9 +19,7 @@ public class Card : MonoBehaviour
     public int newHealthPoints;
 
     public string newHealthPointsText;
-
-    public Image pokemon;
-
+    
     public TextMeshProUGUI healthDisplay;
 
     public TextMeshProUGUI nameDisplay;
@@ -42,12 +40,14 @@ public class Card : MonoBehaviour
         
     }
 
+    // Changes name of the card 
     public void changeName(string newName) 
     {
         cardName = newName;
         nameDisplay.text = newName;
     }
 
+    // Changes damage value of first attack
     public void changeDamageOne(int damageChange)
     {
         initialAttackDamage = int.Parse(attackDisplayOne.text);
@@ -56,6 +56,7 @@ public class Card : MonoBehaviour
         attackDisplayOne.text = newDamageName;
     }
 
+    // Changes damage value of second attack
     public void changeDamageTwo(int damageChange)
     {
         initialAttackDamage = int.Parse(attackDisplayTwo.text);
@@ -64,6 +65,7 @@ public class Card : MonoBehaviour
         attackDisplayTwo.text = newDamageName;
     }
 
+    // Changes health of the card 
     public void changeHealth(int healthChange)
     {
         initialHealthPoints = int.Parse(healthDisplay.text);
